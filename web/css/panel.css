@@ -1,0 +1,99 @@
+.main {
+    display: flex;
+}
+
+.left-column {
+    width: 200px;
+    background-color: #fcfcfc;
+}
+
+.left-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.left-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.left-menu a.active {
+    background-color: #bde1ff;
+}
+
+.center-column {
+    padding: 10px;
+    width: 100%;
+}
+
+.center-column .struct {
+    display: inline-block;
+}
+
+.center-column .struct li {
+    list-style-type: none;
+}
+
+.center-column .struct li {
+    position: relative;
+    line-height: 29px;
+}
+
+.center-column .struct .ctrl-arrow {
+    display: none;
+    position: absolute;
+    top: 7px;
+    left: -20px;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url("/images/menu-arrow.svg");
+    cursor: pointer;
+}
+
+.center-column .struct li.expand>.ctrl-arrow {
+    transform: rotate(90deg);
+}
+
+.center-column .struct li.has-children>.ctrl-arrow {
+    display: block;
+}
+
+.pager {
+  display: flex;
+}
+
+.pager .pager-item {
+  padding: 5px 15px;
+  margin-right: 5px;
+  background-color: #fcfcfc;
+  cursor: pointer !important;
+  z-index: 3000;
+}
+
+.pager .pager-item:hover {
+  background-color: #e3e0e0;
+}
+
+.pager .pager-item.active {
+  background-color: #b6d7f9;
+}
+
+.pager .pager-item.active:hover {
+    //background-color: #b6d7f9;
+    outline-style: inset;
+    outline-color: #487bb1;
+}
+
+.ui-sortable-placeholder {
+    display: block;
+    /*height: 60px;*/
+    /*width: 100%;*/
+    background-color: #ffe8a1;
+}
