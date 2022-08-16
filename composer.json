@@ -33,11 +33,11 @@
             "echo Ittt work!!!"
         ],
         "post-install-cmd": [
-            "Installer::install"
+            "roms\\Installer::install"
         ],
         "post-create-project-cmd": [
             "echo post create project cmd",
-            "Installer::install"
+            "roms\\Installer::install"
         ]
     },
     "repositories": [
