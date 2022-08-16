@@ -1,0 +1,44 @@
+{
+    "name": "roms1975/yii2-romscms",
+    "description": "test",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman",
+            "email": "odggbo@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.3.0",
+        "yiisoft/yii2": "2.0.45"
+	},
+    "config":{
+	    "fxp-asset": {
+            "enabled": false
+        },
+		"allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    },
+    "scripts": {
+    	"post-package-install": [
+            "echo Ittt work!!!"
+        ],
+        "post-install-cmd": [
+            "Installer::install"
+        ],
+        "post-create-project-cmd": [
+            "echo post create project cmd",
+            "Installer::install"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
