@@ -43,25 +43,6 @@ class Installer
 			exit();
 		}
 
-		$user = get_current_user();
-
-		if (!$user) {
-			error_log("Unable get current user");
-			exit();
-		}
-
-		$dir = __DIR__ . "/../";
-		$files = scandir($dir);
-
-		foreach ($files as $file) {
-			if ($file == "." || $file == "..")
-				continue;
-		
-			error_log("Current user: " . $user);
-			chown($file, $user);
-			chgrp($file, 'apache');
-		}
-
 		error_log("Done");
 
 	}
