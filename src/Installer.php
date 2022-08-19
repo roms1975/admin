@@ -23,10 +23,10 @@ class Installer
 			exit();
 		}
 
-		echo "Enter DB login: ";
+		error_log("Enter DB login: ");
 		$user = trim(fgets(STDIN));
 
-		echo "Enter DB password: ";
+		error_log("Enter DB password: ");
 		$pass = trim(fgets(STDIN));
 
 		$str = "<?php\n\n" .
@@ -39,11 +39,23 @@ class Installer
 			"];\n\n";
 		
 		if (!file_put_contents($config, $str)) {
-			echo "Unable create config file " . $config . "\n";
+			error_log("Unable create config file " . $config);
 			exit();
 		}
 
-		echo "Done\n";
+		$user = get_current_user();
+
+		if (!$user) {
+			error_log("Unable get current user");
+			exit();
+		}
+
+		$dir = __DIR__ . "/../";
+		error_log("Current user: " . $user);
+		error_log("Install directory: " . $dir);
+		chown($dir, $user);
+
+		error_log("Done");
 
 	}
 }
