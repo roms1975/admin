@@ -51,9 +51,16 @@ class Installer
 		}
 
 		$dir = __DIR__ . "/../";
-		error_log("Current user: " . $user);
-		error_log("Install directory: " . $dir);
-		chown($dir, $user);
+		$files = scandir($dir);
+
+		foreach ($files as $file) {
+			if ($file == "." || $file == "..")
+				continue;
+		
+			error_log("Current user: " . $user);
+			chown($file, $user);
+			chgrp($file, 'apache');
+		}
 
 		error_log("Done");
 
